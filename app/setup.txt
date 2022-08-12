@@ -1,0 +1,10 @@
+new machine setup:
+npm install
+npm install -d tailwindcss postcss autoprefixer
+npm install react-icons ethers
+
+tailwind reference: 
+npx tailwindcss init -p
+
+run:
+npm run dev
