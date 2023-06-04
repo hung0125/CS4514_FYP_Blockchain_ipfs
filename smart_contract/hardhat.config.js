@@ -2,7 +2,7 @@ require("@nomiclabs/hardhat-waffle");
 
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
-  solidity: "0.8.0",
+  solidity: "0.8.7",
   networks: {
     goerli: {
       url: 'https://eth-goerli.g.alchemy.com/v2/JfV2QgeRcEiIJXbeyC4CLS8e0Kk4vg3c',
