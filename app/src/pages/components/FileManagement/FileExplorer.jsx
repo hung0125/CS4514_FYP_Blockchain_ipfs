@@ -147,7 +147,7 @@ const FileExplorer = () => {
                     setEvents(tmp);        
                     
                     for (let i = 0; i < tmp.length; i++) {
-                        const tmpbid = parseInt(tmp[i].blockID, 16);
+                        const tmpbid = parseInt(tmp[i].blockID._hex, 16);
 
                         qualifiertmp[tmpbid] = true;
                         blockMapTmp[tmpbid] = tmp[i];
