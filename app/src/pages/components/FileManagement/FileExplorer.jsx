@@ -151,7 +151,7 @@ const FileExplorer = () => {
 
                         qualifiertmp[tmpbid] = true;
                         blockMapTmp[tmpbid] = tmp[i];
-                        approvedJoinTmp[parseInt(tmp[i].forJoinID, 16)] = tmpbid; 
+                        approvedJoinTmp[parseInt(tmp[i].forJoinID._hex, 16)] = tmpbid; 
                     }
                     setQualifier(qualifiertmp);
                     setBlockFileMap(blockMapTmp);
@@ -261,7 +261,7 @@ const FileExplorer = () => {
             {/* File list view related */}
             {currentAccount && !folderMode && document.getElementById('tabs')?.value == 'Incoming' &&
                 fileEventsIn.map((dataArr, index) => {
-                    if (qualifier[parseInt(dataArr.blockID, 16)])
+                    if (qualifier[parseInt(dataArr.blockID._hex, 16)])
                         return <InfoCardFile v={dataArr} type='Incoming' fetchData={fetchData} key={index} />;
                     else
                         return null;
@@ -269,7 +269,7 @@ const FileExplorer = () => {
 
             {currentAccount && !folderMode && document.getElementById('tabs')?.value == 'Outgoing' &&
                 fileEventsOut.map((dataArr, index) => {
-                    if (qualifier[parseInt(dataArr.blockID, 16)])
+                    if (qualifier[parseInt(dataArr.blockID._hex, 16)])
                         return <InfoCardFile v={dataArr} type='Outgoing' fetchData={fetchData} key={index} />;
                     else
                         return null;
@@ -334,8 +334,8 @@ const FileExplorer = () => {
                         <InfoCardJoin key={i}
                         joinData={record} 
                         currentAccount={currentAccount} 
-                        approvedBlockID={approvedJoinMap[parseInt(record.joinID, 16)]}
-                        ownFileBlock={blockFileMap[parseInt(record.blockID, 16)]} 
+                        approvedBlockID={approvedJoinMap[parseInt(record.joinID._hex, 16)]}
+                        ownFileBlock={blockFileMap[parseInt(record.blockID._hex, 16)]} 
                         isInbox={true}/>
                 ))
             }
@@ -343,7 +343,7 @@ const FileExplorer = () => {
             {currentAccount && dispJoin.out && document.getElementById('tabs')?.value === 'Joinreq' &&
                 joinOutbox.map((record, i) => (
                         <InfoCardJoin key={i} 
-                        approvedBlockID={approvedJoinMap[parseInt(record.joinID, 16)]} 
+                        approvedBlockID={approvedJoinMap[parseInt(record.joinID._hex, 16)]} 
                         joinData={record}/>
                 ))
             }

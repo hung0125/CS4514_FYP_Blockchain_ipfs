@@ -47,8 +47,8 @@ const UnitTest = () => {
                 {joinInbox.map((record, i) => (
                     <div key={i}>
                         <p>
-                            {i+1} - BlockID: {parseInt(record.blockID, 16)};
-                            JoinID: {parseInt(record.joinID, 16)}; 
+                            {i+1} - BlockID: {parseInt(record.blockID._hex, 16)};
+                            JoinID: {parseInt(record.joinID._hex, 16)}; 
                             Datetime: {tsf.getDateTime(record.creationtime)};
                         </p>
                         <p>
@@ -78,8 +78,8 @@ const UnitTest = () => {
                 {joinOutbox.map((record, i) => (
                     <div key={i}>
                         <p>
-                            {i+1} - BlockID: {parseInt(record.blockID, 16)}; 
-                            JoinID: {parseInt(record.joinID, 16)}; 
+                            {i+1} - BlockID: {parseInt(record.blockID._hex, 16)}; 
+                            JoinID: {parseInt(record.joinID._hex, 16)}; 
                             Created at: {tsf.getDateTime(record.creationtime)};
                         </p>
                         <p>

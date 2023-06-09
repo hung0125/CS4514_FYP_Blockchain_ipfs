@@ -36,7 +36,7 @@ export const PathProvider = ({ children }) => {
 
     const getTreePathDict = () => {
         // sort the tree paths by blockID desc, the path add order is depended by the request response time, not by blockchain DB 
-        treePaths = treePaths.sort((a, b) => parseInt(a[2].blockID, 16) > parseInt(b[2].blockID, 16) ? -1 : 1);
+        treePaths = treePaths.sort((a, b) => parseInt(a[2].blockID._hex, 16) > parseInt(b[2].blockID._hex, 16) ? -1 : 1);
 
         // Create an empty tree object
         let tree = {};

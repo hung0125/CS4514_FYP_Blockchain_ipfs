@@ -124,7 +124,7 @@ const InfoCardFile = (data) => {
                         var jObj = JSON.parse(reply);
                         console.log(jObj);
                         setMetadata(jObj);
-                        dictSet('metadata', parseInt(data.v.blockID, 16) ,jObj);
+                        dictSet('metadata', parseInt(data.v.blockID._hex, 16) ,jObj);
                         addPath(jObj, data.v);
                     } catch (error) {
                         console.error(error);
@@ -242,7 +242,7 @@ const InfoCardFile = (data) => {
 
 const InfoCardJoin = ({joinData: jd, currentAccount: acc, approvedBlockID: apbid, ownFileBlock: fb, isInbox}) => {
     const [fileLoading, setLoading] = useState(false);
-    const blockID = parseInt(jd.blockID, 16);
+    const blockID = parseInt(jd.blockID._hex, 16);
 
     const showDetail = () => {
         setLoading(true);
@@ -280,7 +280,7 @@ ${resobj.cidlist[resobj.cidlist.length - 1].file.slice(0, 5).map((dict, i) => `$
         <div className={`border ${acc? 'border-yellow-400' : 'border-purple-500'} rounded-lg p-4 m-4 inline-block`}>
             <div className="font-bold text-lg mb-4">
                 <div className='underline'>{acc? 'Received':'Sent'}</div>
-                <div>ID: {parseInt(jd.joinID, 16)} ➡ file block #{blockID} {isInbox && (fileLoading ? '(loading)' : <button onClick={showDetail}>ℹ</button>)}</div>
+                <div>ID: {parseInt(jd.joinID._hex, 16)} ➡ file block #{blockID} {isInbox && (fileLoading ? '(loading)' : <button onClick={showDetail}>ℹ</button>)}</div>
                 <div className='break-all'>Requested {isInbox? <>by: {jd.joiner}</> : <>to: {jd.blockOwner}</>} </div>
             </div>
             <div className="text-sm text-cyan-200">

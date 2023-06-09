@@ -76,7 +76,7 @@ const PopVersionControl = (props) => {
           setSearchResult([]);
           props.setMetadata(replyMdat.newMdat);
           setMetadataCID(replyMdat.newMetaCID);
-          dictSet('metadata', parseInt(props.blockData.blockID, 16) , replyMdat.newMdat);
+          dictSet('metadata', parseInt(props.blockData.blockID._hex, 16) , replyMdat.newMdat);
           configExpand(true, 0);
         }
         setUpdating(false)

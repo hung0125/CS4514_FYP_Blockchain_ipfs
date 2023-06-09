@@ -74,7 +74,7 @@ class RecordUtils {
 
         for (let i = 0; i < fileEvents.length; i++) {
             const ev = fileEvents[i];
-            const evblkID = parseInt(ev.blockID, 16);
+            const evblkID = parseInt(ev.blockID._hex, 16);
             const evdat = parseInt(ev.timestamp._hex, 16);
             const pinType = ev.localPin? 'Local' : 'Remote';
 
@@ -99,13 +99,13 @@ class RecordUtils {
 
     //     switch(sortType) {
     //         case 'blockid':
-    //             return fileEvents.sort((a, b) => ord_asc? parseInt(a.blockID, 16) - parseInt(b.blockID, 16) : parseInt(b.blockID, 16) - parseInt(a.blockID, 16));
+    //             return fileEvents.sort((a, b) => ord_asc? parseInt(a.blockID._hex, 16) - parseInt(b.blockID._hex, 16) : parseInt(b.blockID._hex, 16) - parseInt(a.blockID._hex, 16));
     //         case 'pintype':
     //             return fileEvents.sort((a, b) => ord_asc? b.localPin - a.localPin : a.localPin - b.localPin);
     //         case 'filesize':
     //             return fileEvents.sort((a, b) => ord_asc? 
-    //                 this.metadataFileSize(metadata[parseInt(b.blockID, 16)]?.cidlist) - this.metadataFileSize(metadata[parseInt(a.blockID, 16)]?.cidlist) : 
-    //                 this.metadataFileSize(metadata[parseInt(a.blockID, 16)]?.cidlist) - this.metadataFileSize(metadata[parseInt(b.blockID, 16)]?.cidlist));
+    //                 this.metadataFileSize(metadata[parseInt(b.blockID._hex, 16)]?.cidlist) - this.metadataFileSize(metadata[parseInt(a.blockID._hex, 16)]?.cidlist) : 
+    //                 this.metadataFileSize(metadata[parseInt(a.blockID._hex, 16)]?.cidlist) - this.metadataFileSize(metadata[parseInt(b.blockID._hex, 16)]?.cidlist));
     //         default:
     //             return fileEvents;
     //     }

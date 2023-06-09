@@ -17,7 +17,7 @@ class EthContractUT {
         [pass] 5. require(!userList[msg.sender].resolvedJoinRequests[_blockID], "The request is pending approval.");
         */ 
         try {
-            await contract.requestJoinBlock(2);
+            await contract.requestJoinBlock(4);
         }catch(error) {
             alert(error);
         }
@@ -123,7 +123,6 @@ class EthContractUT {
         /**
          * [pass] 1. get outgoing files
          */
-
         try {
             const res = await contract.getOutgoingFiles();
             console.log(res);
@@ -132,37 +131,8 @@ class EthContractUT {
         }
     }
 
-    async test9() {
-        /**
-         * [pass] 1. update metadata as the owner.
-         */
-        try {
-            const trans = await contract.shareFile('0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266', 'test case shared metadata', '', false);
-            await trans.wait();
-            const files = await contract.getIncomingFiles();
-            console.log("Before", files);
-
-            const trans2 = await contract.updateMetadata(parseInt(files[files.length - 1].blockID, 16), 'test case shared updated metadata' , '')
-            await trans2.wait();
-            const files2 = await contract.getIncomingFiles();
-            console.log("After", files2);
-        }catch(error) {
-            alert(error);
-        }
-    }
-
-    async test10() {
-        try {
-            await contract.updateMetadata(10, 'test case shared updated metadata', '');
-        }catch(error) {
-            alert(error);
-        }
-    }
-
-    
-
     getTests() {
-        return [this.test1, this.test2, this.test3, this.test4, this.test5, this.test6, this.test7, this.test8, this.test9, this.test10];
+        return [this.test1, this.test2, this.test3, this.test4, this.test5, this.test6, this.test7];
     }
 }
 
