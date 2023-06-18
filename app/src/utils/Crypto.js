@@ -1,5 +1,6 @@
 import { getPublicKey } from "../context/operations/EthContractCrypto";
 import NodeRSA from 'jsencrypt';
+import { FileStatus } from "./FileStatus";
 class Crypto {
 
     constructor(){
@@ -53,8 +54,9 @@ class Crypto {
             var int = events[i].intMetadataCID;
             var ext = events[i].extMetadataCID;
             var enc = isIncoming ? (ext ? ext : int) : int;
+            var dec = events[i].fileControl.isPrivate && isIncoming ? ext : this.rsa.decrypt(enc);
 
-            res.push(events[i].fileControl.isPrivate && isIncoming ? ext : this.rsa.decrypt(enc));
+            res.push(dec? dec : FileStatus.BROKENKEY);
         }
 
         return res;

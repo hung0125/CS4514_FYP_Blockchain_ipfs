@@ -217,7 +217,7 @@ const FileExplorer = () => {
                 
                 {!folderMode && document.getElementById('tabs')?.value !== 'Joinreq' && 
                 <div className='mx-1 flex flex-row flex-no-wrap'>
-                    <h1 className='px-2'>Filter & Sorting (list view only)</h1>
+                    <h1 className='px-2'>Filter (list view only)</h1>
                     <input type='checkbox' id='filtersort' onChange={updateFilterMode} /> 
                 </div>}
 
