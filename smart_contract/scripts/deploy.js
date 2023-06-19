@@ -1,5 +1,5 @@
 /*
-deploy contracts: npx hardhat run scripts/deploy.js --network goerli (呢條放testnet) || npx hardhat run --network localhost scripts/deploy.js (呢條放local)
+deploy contracts: npx hardhat run scripts/deploy.js --network goerli (放testnet) || npx hardhat run --network localhost scripts/deploy.js (放local)
 after deployment: 
   - copy the deployed address to 'app/utils/constants.js'
   - copy 'contracts/{contract name}.json' to 'app/utils/{contract name}.json'
