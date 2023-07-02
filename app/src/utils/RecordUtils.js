@@ -78,7 +78,7 @@ class RecordUtils {
             const evdat = parseInt(ev.timestamp._hex, 16);
             const pinType = ev.localPin? 'Local' : 'Remote';
 
-            // checking is ordered by worst case time complexity
+            // checkings are ordered by worst case time complexity
             if ((typeOfPinning === 'All' || typeOfPinning === pinType) 
             && (block_ID === '' || evblkID == block_ID)
             && (addrFrom ==='All' || !addrFrom || addrFrom === ev.sender)
